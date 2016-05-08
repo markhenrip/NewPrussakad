@@ -1,0 +1,12 @@
+package application;
+
+public class Venitus {
+	
+	public double venitaX(double x){
+		return x/2 - 40;
+	}
+	
+	public double venitaY(double y){
+		return y/2 - 40;
+	}
+}

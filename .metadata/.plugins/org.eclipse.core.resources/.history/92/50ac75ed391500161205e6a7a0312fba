@@ -1,0 +1,36 @@
+package application;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+public class Peaklass extends Application {
+	private Scene startStseen;
+	private Scene continueStseen;
+	@Override
+	public void start(Stage põhi) throws Exception {
+		Group grupeering = new Group();
+		Button startNupp = new Button("Start");
+		Button exitNupp = new Button("Exit");
+		startNupp.setLayoutX(180);
+		startNupp.setLayoutY(180);
+		exitNupp.setLayoutX(180);
+		exitNupp.setLayoutY(210);
+		grupeering.getChildren().addAll(startNupp, exitNupp);
+		startStseen = new Scene(grupeering, 400, 400, Color.BLUE);
+		
+		põhi.setScene(startStseen);
+		põhi.show();
+		
+		
+	}
+	
+	public static void main(String[] args){
+		launch(args);
+	}
+	
+}
