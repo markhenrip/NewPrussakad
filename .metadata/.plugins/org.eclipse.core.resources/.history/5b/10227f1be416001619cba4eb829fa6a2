@@ -1,0 +1,31 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+		Image image = new Image("File:cr.jpg");
+		ImageView nimi = new ImageView(image);
+		Group grupeering3 = new Group();
+		
+		grupeering3.getChildren().add(nimi);
+		Scene crStseen = new Scene(grupeering3, 1200, 600, Color.AQUAMARINE);
+		primaryStage.setScene(crStseen);
+		primaryStage.show();
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

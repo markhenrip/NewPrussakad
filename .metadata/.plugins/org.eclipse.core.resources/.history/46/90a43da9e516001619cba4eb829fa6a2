@@ -1,0 +1,44 @@
+package application;
+	
+import javafx.animation.TranslateTransition;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+		Image image = new Image("File:cr.png");
+		ImageView nimi = new ImageView(image);
+		Group grupeering3 = new Group();
+		TranslateTransition animatsioon = liikumineraisk(8, nimi);
+		animatsioon.play();
+		grupeering3.getChildren().add(nimi);
+		Scene crStseen = new Scene(grupeering3, 1200, 600, Color.AQUAMARINE);
+		primaryStage.setScene(crStseen);
+		primaryStage.show();
+		
+		
+	}
+	
+	private static TranslateTransition liikumineraisk(double voodiskestvus, ImageView prussakas){
+		TranslateTransition translateTransition =
+			    new TranslateTransition(Duration.millis(12000/voodiskestvus), prussakas);
+			  translateTransition.setFromX(150);
+			  translateTransition.setToX(1100);
+			  translateTransition.setCycleCount(1);
+			  translateTransition.setAutoReverse(true);
+		return translateTransition;
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
