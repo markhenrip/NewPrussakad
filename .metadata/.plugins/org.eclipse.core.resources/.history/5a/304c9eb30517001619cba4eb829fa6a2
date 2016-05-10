@@ -15,6 +15,13 @@ import javafx.scene.paint.Color;
 public class Main extends Application {
 	@Override
 	public void start(Stage põhi) {
+		
+//		TranslateTransition animatsioon = liikumineraisk(8, nimi);
+//		animatsioon.play();
+//		grupeering3.getChildren().add(nimi);
+	
+		
+		
 	}
 	
 	

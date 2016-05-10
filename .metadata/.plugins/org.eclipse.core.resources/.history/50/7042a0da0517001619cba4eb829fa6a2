@@ -35,6 +35,7 @@ class Võistlus{
      String prussakas_parim = "";
      int number = 0;
      String rada = "";
+     Prussakas dummy = new Prussakas (null, 0, 0); // see asendatakse array-sse, kuna me tahame eemaldada kiireima ja moodustada edetabelit
      String[] rajad = new String[osalejad.length];
      j = 0;
      
@@ -48,21 +49,70 @@ class Võistlus{
         I = i;
         maksimum = pruss.getKiirus();
         prussakas_parim = pruss.getNimi(); //siin toimub parima välja selgitamine
+        //System.out.println("###" + prussakas_parim);
        }
       }
+//      for (Prussakas elem_j: joonis){
+//       rada = "|" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi(); 
+//      }
+      //System.out.println(tulemus);
+      //for (Prussakas pruss : osalejad){
+      // System.out.print(pruss.getNimi());
+      //}
       tulemus[number] = prussakas_parim; //lisame parimad
+      //osalejad[I] = dummy; //asendame parima mõttetu klooniga
       finiššeerinud++;
       if (finiššeerinud == osalejad.length){ //kui kõik osalejad on finišisse jõudnud
        sõit = false;
       }
       number++; // creative I know
-     }     
+     }
+//     for (Prussakas elem_j: joonis){
+//      rada = "|#" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi();
+//      rajad[j] = rada;
+//      j++;
+//     }
+//     
+//     while (rajad[rajad.length-1].indexOf("#") < 100){
+//      j = -1;
+//      for (String r: rajad){
+//       j++;
+//       if (r.indexOf("#") < 100){
+//        int teepikkus = (int)Math.round(joonis[j].getKiirus());
+//        int k = r.indexOf("#");
+//        r = r.replace("#", "-");
+//        char[] r2 = r.toCharArray();
+//        if (k + teepikkus < 100)
+//        {
+//         r2[k+teepikkus]='#'; //stringbuilder was found about, after 
+//        }
+//        else 
+//        {
+//         r2[100]='#';
+//        }
+//        rajad[j] = new String(r2);
+//       
+//       }
+//       
+//      }
+//      for(String s : rajad) {System.out.println(s+"");}
+//      System.out.println();
+//      System.out.println("Võistluse jälgimiseks vajuta korduvalt Enterit. ");
+//      //scn.nextLine();
+//      try {
+//    Thread.sleep(1000);
+//   } catch (InterruptedException e) {
+//    // TODO Auto-generated catch block
+//    e.printStackTrace();
+//   }
+//     }
+      
   return tulemus;
  }
  
  
  
-// In honor of Anton the following code will remain...
+ 
 // public Prussakas[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
 //     Prussakas[] tulemus = new Prussakas[osalejad.size()];
 //     int palju1,palju2,finiššeerinud = 0;

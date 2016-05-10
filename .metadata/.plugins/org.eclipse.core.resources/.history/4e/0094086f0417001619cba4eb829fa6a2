@@ -124,11 +124,11 @@ public class Peaklass extends Application {
 		endText.setScaleX(2);
 		endText.setScaleY(2);
 		endText.setFill(Color.INDIANRED);
-		continueText.setLayoutX(100);
+		continueText.setLayoutX(0);
 		continueText.setLayoutY(350);
-		continueText.setScaleX(2);
-		continueText.setScaleY(2);
-		continueText.setFill(Color.INDIANRED);
+		endText.setScaleX(2);
+		endText.setScaleY(2);
+		endText.setFill(Color.INDIANRED);
 		label1.setLayoutX(80);
 		label1.setLayoutY(270);
 		label1.setScaleX(1.5);
@@ -245,6 +245,7 @@ public class Peaklass extends Application {
 				if(panus<=0 || panus > raha)
 					throw new InvalidInputException();
 				Start.startGo(põhi, crStseen);
+				//System.out.println(panus);
 				String vastus = ((RadioButton)nupudxd.getSelectedToggle()).getText();
 				if(Võit(vastus, edetabel[0])){
 					raha = raha + (panus*5);
@@ -252,6 +253,7 @@ public class Peaklass extends Application {
 				else{
 					raha = raha - panus;
 				}
+				//System.out.println(raha);
 				rahaTekst.setText("Raha: "+ raha);
 
 				int j = 0;
@@ -260,9 +262,10 @@ public class Peaklass extends Application {
 					temp_text.get(j).setLayoutY((j+1)*30);
 					temp_image.get(j).setLayoutY(j*30);
 					temp_image.get(j).setLayoutX(50);
+					//					TranslateTransition animatsioon = liikumine(elem.getKiirus(), temp_image.get(j));
+					//					animatsioon.play();
 					j++;
 				}
-				continueText.setText("Sa panustasid: "+vastus+" peale");
 			}
 			catch(NumberFormatException e){
 				errorid.setText("Sisesta täisarv");
@@ -274,6 +277,28 @@ public class Peaklass extends Application {
 			catch(Exception e){
 				errorid.setText("Miski on mäda");
 			}
+			
+//			Start.startGo(põhi, crStseen);
+//			System.out.println(panus);
+//			String vastus = ((RadioButton)nupudxd.getSelectedToggle()).getText();
+//			if(Võit(vastus, edetabel[0])){
+//				raha = raha + (panus*5);
+//			}
+//			else{
+//			raha = raha - panus;
+//			}
+//			System.out.println(raha);
+//			rahaTekst.setText("Raha: "+ raha);
+//			
+//			int j = 0;
+//			for (Prussakas elem: juss){
+//				temp_text.get(j).setText(elem.getNimi());
+//				temp_text.get(j).setLayoutY((j+1)*30);
+//				temp_image.get(j).setLayoutY(j*30);
+////				TranslateTransition animatsioon = liikumine(elem.getKiirus(), temp_image.get(j));
+////				animatsioon.play();
+//				j++;
+//			}
 		});
 		
 		ArrayList<TranslateTransition> abiarray = new ArrayList<TranslateTransition>();
@@ -287,6 +312,10 @@ public class Peaklass extends Application {
 			}
 		});
 		
+//		Võistlus comp = new Võistlus(1); //loome võistluse, kust prussakad osa võtavad
+//		String[] edetabel = comp.korralda_võidusõit(juss); //siin toimub võitja arvutamine
+//		System.out.println("Võitja on "+ edetabel[0]);
+		
 		lõpeta.setOnMouseClicked(event -> {
 			if (raha >= 5000){
 				Start.startGo(põhi, endStseen);
@@ -297,8 +326,8 @@ public class Peaklass extends Application {
 				endText.setText("Mäng läbi, sa kaotasid.");
 			}
 			else{
-				abiarray.forEach(x -> x.stop());
-				abiarray.forEach(x -> x.jumpTo(Duration.millis(0)));
+//				abiarray.forEach(x -> x.stop());
+//				abiarray.forEach(x -> x.jumpTo(Duration.millis(0)));
 				
 				
 				Start.startGo(põhi, continueStseen);
@@ -309,13 +338,83 @@ public class Peaklass extends Application {
 				System.out.println("Võitja on "+ edetabel[0]);
 			}
 		});
+		
+		 
+		    
+		    
+		while (mäng_käib == true){ //mängu tsükli algus
+			System.out.println("Alustame!");
+//			Prussakas [] juss = new Prussakas[10];
+//			for (int i = 0; i<10;i++){
+//				juss[i] = Prussakas.loo_prussakas(1); //loome 10 prussakat, kes osalevad võistlusel(suvalised)
+//				System.out.println(juss[i].getNimi());
+//				temp_nupud.get(i).setText(juss[i].getNimi());
+//				põhi.show();
+//				
+//			}
+			for (Prussakas pruss : juss)System.out.println(pruss.getNimi());
+			System.out.println("Sisesta prussaka nimi, kes võidab"); //laseme valida osalevate prussakate hulgast, kes võidab
+			String pruss_nimi ;
+			System.out.println("Sisesta pakutava raha summa, sul on " + raha); //ja palju ta peale panustatakse
+			String  pruss_pakkumine = "0";
+			int pakkumine = Integer.parseInt(pruss_pakkumine);
+			if (pakkumine > raha || pakkumine < 1){
+				System.out.println("Raha on tõsine asi ja sellega ei mängita"); //pakkumise väärtuste kontroll
+				break;
+		    }
+//		    Võistlus comp = new Võistlus(1); //loome võistluse, kust prussakad osa võtavad
+//		    String[] edetabel = comp.korralda_võidusõit(juss); //siin toimub võitja arvutamine ja võidusõidu visuaalne osa
+//		    System.out.println("Võitja on "+ edetabel[0]); //edetabeli esimene on võitja
+		    if (!"".equals(edetabel[0])){
+		    	raha = raha-pakkumine;
+		    }                                        //pakkumiste arvutamine
+		    else{
+		    	raha = raha + (pakkumine*5);
+		    }
+		    if (raha <= 0){
+		    	System.out.println("Sul on probleem! Sa oled rahast tühjaks jooksnud!");
+		    	mäng_käib = false;
+		    }                                 //hunnik kontrolle
+		    else if (raha >= 5000.0){
+		    	System.out.println("Õnnitlen, sa saad nüüd alustada oma karjääri prussakakasvatajana!");
+		    	mäng_käib = false;
+		    }
+		    System.out.println("Sul on " + raha + " eurot."); 
+		    System.out.println();
+		    if (mäng_käib == true){
+		    System.out.println("Järgmine võistlus juba algab, valmistu panustamiseks");
+		    System.out.println();
+		    }
+		}
+		   
+		  
+		  
+		  
+		  /*
+		  System.out.println("Nüüd algab päris mäng see tähendab minu oma.");
+		  ArrayList<Prussakas> jussid = new ArrayList<Prussakas>();
+		  for (int i = 0; i<5;i++){
+		   jussid.add(Prussakas.loo_prussakas(1));
+		  }
+		  for (Prussakas pruss : jussid)System.out.print(pruss.getNimi()+ " ");
+		  Võistlus mina = new Võistlus(1);
+		  mina.korralda_võidusõit_alt(jussid);
+		  
+		 }*/
+		 
+//		panusta.setOnMouseClicked(event -> {
+//			System.out.println(textField.getText());
+//		});
+
 	}
 	
 	private static Prussakas[] prussakateGen(ArrayList<RadioButton> arg0, Stage arg1){
 		Prussakas [] juss = new Prussakas[10];
 		for (int i = 0; i<10;i++){
 			juss[i] = Prussakas.loo_prussakas(1); //loome 10 prussakat, kes osalevad võistlusel(suvalised)
+			//System.out.println(juss[i].getNimi());
 			arg0.get(i).setText(juss[i].getNimi());
+			//System.out.println(arg0.get(i).getText());
 			arg1.show();
 			
 		}
