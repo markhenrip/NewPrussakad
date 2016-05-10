@@ -102,9 +102,6 @@ public class Peaklass extends Application {
 		nupp8.setLayoutX(210);
 		nupp8.setLayoutY(160);
 		nupp8.setToggleGroup(nupudxd);
-		nupp9.setLayoutX(210);
-		nupp9.setLayoutY(190);
-		nupp9.setToggleGroup(nupudxd);
 		
 		põhi.setResizable(false);
 		põhi.setScene(startStseen);
