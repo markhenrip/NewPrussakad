@@ -90,6 +90,8 @@ public class Peaklass extends Application {
 		RadioButton  nupp0 = new RadioButton("");
 		Label label1 = new Label("Panus:");
 		TextField textField = new TextField ();
+		Label label2 = new Label("Nimi:");
+		TextField textField2 = new TextField ();
 		
 		
 		grupeering.getChildren().addAll(startNupp, loadNupp, introTekst);

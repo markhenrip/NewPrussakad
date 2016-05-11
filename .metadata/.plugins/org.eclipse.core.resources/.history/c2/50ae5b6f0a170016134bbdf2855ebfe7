@@ -35,7 +35,6 @@ public class Peaklass extends Application {
 	static boolean mäng_käib;
 	private static String[] edetabel;
 	private static Prussakas[] juss;
-	private static String prevVõitja;
 	@Override
 	public void start(Stage põhi) throws Exception {
 		Group grupeering = new Group();
@@ -131,9 +130,8 @@ public class Peaklass extends Application {
 		continueText.setScaleX(2);
 		continueText.setScaleY(2);
 		continueText.setFill(Color.INDIANRED);
-		prevText.setLayoutX(100);
-		prevText.setLayoutY(30);
-		prevText.setFill(Color.INDIANRED);
+		prevText.setLayoutX(10);
+		prevText.setLayoutY(10);
 		label1.setLayoutX(80);
 		label1.setLayoutY(270);
 		label1.setScaleX(1.5);
@@ -258,7 +256,7 @@ public class Peaklass extends Application {
 					raha = raha - panus;
 				}
 				rahaTekst.setText("Raha: "+ raha);
-				prevVõitja = edetabel[0];
+
 				int j = 0;
 				for (Prussakas elem: juss){
 					temp_text.get(j).setText(elem.getNimi());
@@ -312,7 +310,6 @@ public class Peaklass extends Application {
 				Võistlus comp = new Võistlus(1); //loome võistluse, kust prussakad osa võtavad
 				edetabel = comp.korralda_võidusõit(juss); //siin toimub võitja arvutamine
 				System.out.println("Võitja on "+ edetabel[0]);
-				prevText.setText("Eelmise ralli võitis: "+prevVõitja);
 			}
 		});
 	}

@@ -90,9 +90,12 @@ public class Peaklass extends Application {
 		RadioButton  nupp0 = new RadioButton("");
 		Label label1 = new Label("Panus:");
 		TextField textField = new TextField ();
+		Label label2 = new Label("Nimi:");
+		TextField textField2 = new TextField ();
+		Text replaceText = new Text("");
 		
 		
-		grupeering.getChildren().addAll(startNupp, loadNupp, introTekst);
+		grupeering.getChildren().addAll(label2, textField2, startNupp, loadNupp, introTekst);
 		grupeering2.getChildren().addAll(prevText, salvesta, label1, textField, panusta, rahaTekst, nupp1, nupp2, nupp3, nupp4, nupp5, nupp6, nupp7, nupp8, nupp9, nupp0);
 		grupeering3.getChildren().addAll(continueText, lõpeta, alusta, nimi0, nimi1, nimi2, nimi3, nimi4, nimi5, nimi6, nimi7, nimi8, nimi9, prussakaNimi0, prussakaNimi1, prussakaNimi2, prussakaNimi3, prussakaNimi4, prussakaNimi5, prussakaNimi6, prussakaNimi7, prussakaNimi8, prussakaNimi9);
 		grupeering4.getChildren().addAll(endText);
@@ -141,6 +144,18 @@ public class Peaklass extends Application {
 		label1.setTextFill(Color.INDIANRED);
 		textField.setLayoutX(130);
 		textField.setLayoutY(265);
+		label2.setLayoutX(80);
+		label2.setLayoutY(270);
+		label2.setScaleX(1.5);
+		label2.setScaleY(1.5);
+		label2.setTextFill(Color.INDIANRED);
+		textField2.setLayoutX(130);
+		textField2.setLayoutY(265);
+		replaceText.setLayoutX(80);
+		label2.setLayoutY(270);
+		label2.setScaleX(1.5);
+		label2.setScaleY(1.5);
+		label2.setTextFill(Color.INDIANRED);
 		nupp0.setLayoutX(60);
 		nupp0.setLayoutY(70);
 		nupp0.setToggleGroup(nupudxd);

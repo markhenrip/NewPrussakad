@@ -133,7 +133,6 @@ public class Peaklass extends Application {
 		continueText.setFill(Color.INDIANRED);
 		prevText.setLayoutX(100);
 		prevText.setLayoutY(30);
-		prevText.setFill(Color.INDIANRED);
 		label1.setLayoutX(80);
 		label1.setLayoutY(270);
 		label1.setScaleX(1.5);
